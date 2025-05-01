@@ -1332,7 +1332,8 @@ class TerminalApp:
         # Check if alias already exists
         if alias in self.aliases:
             if not messagebox.askyesno("Alias Exists", 
-                f"Alias '{alias}' already exists. Do you want to overwrite it?"):
+                f"Alias '{alias}' already exists. Do you want to overwrite it?",
+                parent=alias_list.master):
                 return
         
         self.aliases[alias] = command
@@ -1346,7 +1347,7 @@ class TerminalApp:
         alias_list.insert(tk.END, f"{alias} = {command}")
         
         # Show confirmation
-        messagebox.showinfo("Alias Added", f"Alias '{alias}' set to: {command}")
+        messagebox.showinfo("Alias Added", f"Alias '{alias}' set to: {command}", parent=alias_list.master)
     
     def _edit_alias(self, alias_list):
         """Edits an existing alias."""
@@ -1368,7 +1369,7 @@ class TerminalApp:
         alias_list.insert(selection[0], f"{alias} = {command}")
         
         # Show confirmation
-        messagebox.showinfo("Alias Updated", f"Alias '{alias}' updated to: {command}")
+        messagebox.showinfo("Alias Updated", f"Alias '{alias}' updated to: {command}", parent=alias_list.master)
     
     def _delete_alias(self, alias_list):
         """Deletes an existing alias."""
@@ -1378,7 +1379,10 @@ class TerminalApp:
         current = alias_list.get(selection[0])
         alias = current.split(" = ")[0]
         
-        if messagebox.askyesno("Delete Alias", f"Are you sure you want to delete alias '{alias}'?"):
+        # Get the parent window (alias management window)
+        parent_window = alias_list.master
+        
+        if messagebox.askyesno("Delete Alias", f"Are you sure you want to delete alias '{alias}'?", parent=parent_window):
             del self.aliases[alias]
             self.save_config()
             alias_list.delete(selection[0])
