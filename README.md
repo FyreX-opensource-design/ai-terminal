@@ -15,5 +15,5 @@ This application uses `tkinter` for its graphical interface. You might need to i
 
 1. Clone the repository (or create the files).
 2. Navigate to the `ai_terminal` directory.
-3. Activate the virtual environment: `source .venv/bin/activate`
+3. Activate the virtual environment (with python 3.12 if using the AI version): `source .venv/bin/activate`
 4. Run the application: `python main.py` 
