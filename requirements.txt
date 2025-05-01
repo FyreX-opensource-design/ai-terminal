@@ -1,0 +1,6 @@
+# No external dependencies required (uses built-in modules) 
+pillow
+open-interpreter
+
+# AppImage build dependencies
+pyinstaller

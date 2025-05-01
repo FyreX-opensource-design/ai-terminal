@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=AI Terminal
+Comment=Advanced Terminal with AI capabilities
+Exec=ai-terminal
+Icon=ai-terminal
+Categories=System;TerminalEmulator;
+Terminal=false
+StartupNotify=true
+Version=1.0
+X-AppImage-Name=AI Terminal
+X-AppImage-Version=1.0
+X-AppImage-Arch=x86_64 
